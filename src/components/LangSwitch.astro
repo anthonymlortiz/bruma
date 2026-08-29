@@ -1,0 +1,108 @@
+---
+import { copy, pathFor, LANGS, type Lang } from '../content/site';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = copy[lang];
+---
+
+<nav class="lang" aria-label={t.ui.langLabel}>
+  {
+    LANGS.map((code, i) => (
+      <>
+        {i > 0 && <span class="lang__sep" aria-hidden="true" />}
+        <a
+          class="lang__link"
+          href={pathFor(code)}
+          hreflang={code}
+          lang={copy[code].htmlLang}
+          data-lang={code}
+          aria-current={code === lang ? 'true' : undefined}
+        >
+          <span aria-hidden="true">{code.toUpperCase()}</span>
+          <span class="visually-hidden">{copy[code].endonym}</span>
+        </a>
+      </>
+    ))
+  }
+</nav>
+
+<script>
+  /* Remember an explicit choice only. Arriving on /en/ from a shared link does
+     not overwrite a preference — see the redirect in Base.astro. */
+  const KEY = 'bruma:lang';
+  const current = document.documentElement.lang;
+
+  for (const link of document.querySelectorAll<HTMLAnchorElement>('.lang__link')) {
+    link.addEventListener('click', (event) => {
+      const chosen = link.dataset.lang;
+      if (!chosen) return;
+      try {
+        localStorage.setItem(KEY, chosen);
+      } catch {
+        /* Private mode or storage disabled — the link still navigates. */
+      }
+      if (chosen === current) event.preventDefault();
+    });
+  }
+</script>
+
+<style>
+  .lang {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: clamp(1.1rem, 2.6vh, 1.9rem) var(--gutter);
+    animation: lang-in 1200ms var(--ease) 1200ms both;
+  }
+
+  .lang__link {
+    font-family: var(--font-sans);
+    font-size: 0.68rem;
+    font-weight: 400;
+    letter-spacing: 0.26em;
+    text-indent: 0.26em;
+    text-decoration: none;
+    color: var(--ink-quiet);
+    text-shadow: 0 1px 12px rgba(7, 12, 9, 0.75);
+    padding: 0.5rem 0.15rem;
+    transition: color 450ms var(--ease);
+  }
+
+  .lang__link[aria-current] {
+    color: var(--ivory);
+  }
+
+  .lang__link:hover,
+  .lang__link:focus-visible {
+    color: var(--ivory);
+  }
+
+  .lang__sep {
+    width: 1px;
+    height: 0.7rem;
+    background: rgba(243, 237, 225, 0.24);
+  }
+
+  @keyframes lang-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lang {
+      animation: none;
+    }
+  }
+</style>

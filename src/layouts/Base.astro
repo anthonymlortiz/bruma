@@ -1,63 +1,94 @@
 ---
 import '../styles/global.css';
-import { site } from '../content/site';
+import { site, copy, pathFor, LANGS, DEFAULT_LANG, type Lang } from '../content/site';
 
 interface Props {
-  title?: string;
-  description?: string;
+  lang: Lang;
 }
 
-const { title = site.title, description = site.description } = Astro.props;
+const { lang } = Astro.props;
+const t = copy[lang];
 
-const canonical = new URL(Astro.url.pathname, site.url).href;
+const canonical = new URL(pathFor(lang), site.url).href;
 const ogImage = new URL(site.ogImage, site.url).href;
+const defaultHref = new URL(pathFor(DEFAULT_LANG), site.url).href;
+const enPath = pathFor('en');
+
+const alternates = LANGS.map((code) => ({
+  hreflang: copy[code].htmlLang,
+  href: new URL(pathFor(code), site.url).href,
+}));
 
 const organization = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
+  '@id': `${site.url}/#organization`,
   name: site.name,
   alternateName: site.shortName,
   url: site.url,
   logo: new URL('/icon-512.png', site.url).href,
   image: ogImage,
-  description: site.description,
+  description: t.meta.description,
+  inLanguage: LANGS.map((code) => copy[code].htmlLang),
   sameAs: [site.instagram.url],
   address: {
     '@type': 'PostalAddress',
     addressLocality: site.place.locality,
     addressRegion: site.place.region,
-    addressCountry: 'DO',
+    addressCountry: site.place.countryCode,
   },
 };
 ---
 
 <!doctype html>
-<html lang={site.locale}>
+<html lang={t.htmlLang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>{title}</title>
-    <meta name="description" content={description} />
+    {/* Send a returning visitor to the language they chose. Runs before paint,
+        and only from the default route so a shared /en/ link always wins. */}
+    <script is:inline define:vars={{ enPath }}>
+      (function () {
+        try {
+          if (location.pathname !== '/') return;
+          if (localStorage.getItem('bruma:lang') === 'en') location.replace(enPath);
+        } catch (error) {
+          /* Storage unavailable — fall through to the default language. */
+        }
+      })();
+    </script>
+
+    <title>{t.meta.title}</title>
+    <meta name="description" content={t.meta.description} />
     <link rel="canonical" href={canonical} />
     <meta name="theme-color" content="#070c09" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
 
+    {alternates.map((alt) => <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />)}
+    <link rel="alternate" hreflang="x-default" href={defaultHref} />
+
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={site.name} />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale" content={t.ogLocale} />
+    {
+      LANGS.filter((code) => code !== lang).map((code) => (
+        <meta property="og:locale:alternate" content={copy[code].ogLocale} />
+      ))
+    }
     <meta property="og:url" content={canonical} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta property="og:title" content={t.meta.title} />
+    <meta property="og:description" content={t.meta.description} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content={`The ${site.name} mark over the mountains of Jarabacoa`} />
+    <meta property="og:image:alt" content={t.meta.ogImageAlt} />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:title" content={t.meta.title} />
+    <meta name="twitter:description" content={t.meta.description} />
     <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={t.meta.ogImageAlt} />
 
     <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
     <link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png" />
@@ -81,7 +112,7 @@ const organization = {
   </head>
 
   <body>
-    <a class="skip-link" href="#main">Skip to content</a>
+    <a class="skip-link" href="#main">{t.ui.skip}</a>
     <slot />
   </body>
 </html>

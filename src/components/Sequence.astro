@@ -3,12 +3,14 @@ import Plate from './Plate.astro';
 import mountainAir from '../assets/photography/mountain-air.jpg';
 import valleyRange from '../assets/photography/valley-range.jpg';
 import rollingHills from '../assets/photography/rolling-hills.jpg';
+import { copy, type Lang } from '../content/site';
 
-const notes = {
-  air: 'Mountain air',
-  unhurried: 'Unhurried living',
-  rooted: 'Rooted in Jarabacoa',
-};
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = copy[lang];
 ---
 
 <section class="sequence" aria-label="Jarabacoa">
@@ -16,7 +18,7 @@ const notes = {
     <Plate
       class="seq-a"
       src={mountainAir}
-      alt="Morning mist lying in the valleys below Jarabacoa, seen through the canopy of a tree"
+      alt={t.sequence.airAlt}
       ratio="var(--r)"
       position="50% 50%"
       sizes="(min-width: 64em) 56vw, 100vw"
@@ -25,13 +27,13 @@ const notes = {
     />
     <p class="note note--a" data-reveal>
       <span class="note__tick" aria-hidden="true"></span>
-      <span class="note__text display">{notes.air}</span>
+      <span class="note__text display">{t.sequence.air}</span>
     </p>
 
     <Plate
       class="seq-b"
       src={valleyRange}
-      alt="The Jarabacoa valley opening toward a hazy line of mountains"
+      alt={t.sequence.valleyAlt}
       ratio="var(--r)"
       position="50% 50%"
       sizes="(min-width: 64em) 60vw, 100vw"
@@ -40,14 +42,14 @@ const notes = {
     />
     <p class="note note--b" data-reveal>
       <span class="note__tick" aria-hidden="true"></span>
-      <span class="note__text display">{notes.unhurried}</span>
+      <span class="note__text display">{t.sequence.unhurried}</span>
     </p>
   </div>
 
   <Plate
     class="seq-c"
     src={rollingHills}
-    alt="Rolling green hills folding into one another under high afternoon cloud"
+    alt={t.sequence.hillsAlt}
     ratio="var(--r)"
     position="50% 50%"
     sizes="100vw"
@@ -56,7 +58,7 @@ const notes = {
   />
   <p class="note note--c" data-reveal>
     <span class="note__tick" aria-hidden="true"></span>
-    <span class="note__text display">{notes.rooted}</span>
+    <span class="note__text display">{t.sequence.rooted}</span>
   </p>
 </section>
 

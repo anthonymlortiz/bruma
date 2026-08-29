@@ -2,14 +2,21 @@
 import { Picture, Image } from 'astro:assets';
 import lockup from '../assets/brand/bruma-lockup-ivory.png';
 import heroImage from '../assets/photography/hero-ridges.jpg';
-import { hero, site } from '../content/site';
+import { copy, site, type Lang } from '../content/site';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = copy[lang];
 ---
 
 <section class="hero" id="top">
   <div class="hero__media" data-parallax>
     <Picture
       src={heroImage}
-      alt="Late afternoon light across the layered green ridges of the Jarabacoa highlands"
+      alt={t.hero.imageAlt}
       widths={[768, 1080, 1440, 1920, 2560, 3200]}
       sizes="100vw"
       formats={['avif', 'webp']}
@@ -37,13 +44,13 @@ import { hero, site } from '../content/site';
         fetchpriority="high"
       />
       <span class="hero__hairline" aria-hidden="true"></span>
-      <span class="hero__statement display">{hero.statement}</span>
+      <span class="hero__statement display">{t.hero.statement}</span>
     </h1>
-    <p class="hero__tagline">{hero.tagline}</p>
+    <p class="hero__tagline">{t.hero.tagline}</p>
   </div>
 
   <a class="hero__cue" href="#intro">
-    <span class="eyebrow">{hero.cue}</span>
+    <span class="eyebrow">{t.hero.cue}</span>
     <span class="hero__cue-track" aria-hidden="true"><span class="hero__cue-pulse"></span></span>
   </a>
 </section>

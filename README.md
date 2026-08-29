@@ -37,31 +37,79 @@ scripts/
   build-assets.mjs   Brand marks, favicons, OG image, photography grade + crops
   fetch-fonts.mjs    Downloads Cormorant Garamond + Jost, writes fonts.css
   shoot.mjs          Optional: screenshots at 4 viewports (see Verifying)
+  test-lang.mjs      Optional: end-to-end language switcher tests
 src/
   assets/brand/        Derived ivory logo lockup + mark
   assets/photography/  Derived, graded, pre-cropped photographs
-  components/          Hero, Intro, Sequence, Plate, Closing, SiteFooter
-  content/site.ts      All copy and links — edit here, not in markup
-  layouts/Base.astro   <head>, metadata, JSON-LD, fonts, skip link
-  pages/index.astro    Page composition + reveal/parallax script
+  components/          Page shell, LangSwitch, and the five sections
+  content/site.ts      All copy and links, per language — edit here, not in markup
+  layouts/Base.astro   <head>, metadata, hreflang, JSON-LD, fonts, skip link
+  pages/index.astro    Spanish route (/)
+  pages/en/index.astro English route (/en/)
   styles/              Design tokens, baseline, generated @font-face rules
 public/                Favicons, OG image, fonts, robots, sitemap, CNAME
 logos/                 Approved brand artwork (source of truth — do not edit)
 pics/                  Source photography
 ```
 
+## Languages
+
+Spanish is the default — Bruma is Dominican and the domain is `.do`. English is
+a peer, not an afterthought.
+
+| Language | Route |
+| --- | --- |
+| Spanish | `https://bruma.do/` |
+| English | `https://bruma.do/en/` |
+
+Both routes render the same `src/components/Page.astro`, so structural changes
+land in both languages at once. **Only one language is ever in the document** —
+each route is a separate static page, so there is no hidden copy, no duplicate
+content on a single URL, and no flash of the wrong language.
+
+### Remembering a choice
+
+Clicking `ES` or `EN` writes `bruma:lang` to `localStorage`. On a later visit an
+inline script in `<head>` redirects `/` to `/en/` before paint if English was
+chosen. Two deliberate limits:
+
+- **Only an explicit click is remembered.** Merely landing on `/en/` from a
+  shared link stores nothing, so the default stays Spanish.
+- **Only `/` ever redirects.** A link to `/en/` always renders English, whatever
+  the visitor previously chose — shared URLs are never hijacked.
+
+Without JavaScript the root simply serves Spanish and the switcher stays a pair
+of ordinary links.
+
+### Language metadata
+
+Set per route in `src/layouts/Base.astro`: `<html lang>`, `<link rel=canonical>`,
+reciprocal `hreflang` alternates for `es`, `en` and `x-default` (pointing at
+Spanish), `og:locale` (`es_DO` / `en_US`) with `og:locale:alternate`, translated
+title/description/OG/Twitter tags, and `inLanguage` on the JSON-LD Organization.
+`public/sitemap.xml` lists both URLs with `xhtml:link` alternates.
+
+### Adding a language
+
+1. Add the code to `Lang` and `LANGS` in `src/content/site.ts` and fill in a copy
+   block — TypeScript will list anything missing.
+2. Add `src/pages/<code>/index.astro` rendering `<Page lang="<code>" />`.
+3. Add the URL to `public/sitemap.xml`.
+
+`pathFor()` and the switcher pick it up automatically. Note that the redirect
+script in `Base.astro` is hardcoded to English; generalise it if you add a third.
+
 ### Editing copy
 
-All wording lives in `src/content/site.ts`. The three sequence captions
-("Mountain air", "Unhurried living", "Rooted in Jarabacoa") live in
-`src/components/Sequence.astro`.
+All wording, including image alt text, lives in `src/content/site.ts`.
 
-### Adding a section
+## Adding a section
 
-Create a component in `src/components/`, then drop it into
-`src/pages/index.astro`. Use `data-reveal` on an element to have it fade up on
-scroll, and `data-parallax` on a media wrapper to give its image gentle drift.
-Both are no-ops under `prefers-reduced-motion`.
+Create a component in `src/components/`, take a `lang: Lang` prop, read its
+wording from `copy[lang]`, then add it to `src/components/Page.astro`. Use
+`data-reveal` on an element to have it fade up on scroll, and `data-parallax` on
+a media wrapper to give its image gentle drift. Both are no-ops under
+`prefers-reduced-motion`.
 
 ## The logo
 
@@ -116,25 +164,32 @@ rewrites `src/styles/fonts.css`.
 ## Accessibility
 
 - Semantic landmarks and a single `h1`; headings in order.
-- Skip link to the main content.
+- Skip link to the main content, translated per language.
+- `<html lang>` is correct on each route, and the switcher's links carry
+  `hreflang` plus a visually hidden endonym so "ES" is announced as "Español".
 - Every colour pair meets WCAG AA on the `#070c09` ground (body text 16:1,
   quietest tone ~5.6:1).
 - Visible `:focus-visible` rings on all interactive elements.
 - Decorative images are `alt=""` and `aria-hidden`; photographs describe the
   place, not the brand.
 - `prefers-reduced-motion: reduce` disables every animation, reveal and parallax.
-- Content is fully visible without JavaScript.
+- Content is fully visible without JavaScript, in the correct default language.
 
 ## Verifying
 
 ```sh
 npm run build && npm run preview
 npm i --no-save puppeteer-core   # not a project dependency
-node scripts/shoot.mjs           # writes /tmp/bruma_shots
+
+node scripts/test-lang.mjs       # 20 assertions on the language switcher
+node scripts/shoot.mjs           # screenshots -> /tmp/bruma_shots
+URL=http://localhost:4321/en/ OUT=/tmp/shots_en node scripts/shoot.mjs
 ```
 
 `shoot.mjs` captures full-page screenshots at desktop, laptop, tablet and mobile,
-scrolling first so lazy images and reveals have fired.
+scrolling first so lazy images and reveals have fired. `test-lang.mjs` covers the
+default language, switching, persistence, and that shared `/en/` links are never
+redirected.
 
 ## Deployment
 

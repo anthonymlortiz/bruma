@@ -1,13 +1,20 @@
 ---
-import { intro } from '../content/site';
+import { copy, type Lang } from '../content/site';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = copy[lang];
 ---
 
 <section class="intro" id="intro" aria-labelledby="intro-heading">
-  <p class="eyebrow" data-reveal>{intro.eyebrow}</p>
+  <p class="eyebrow" data-reveal>{t.intro.eyebrow}</p>
   <h2 class="intro__heading display" id="intro-heading" data-reveal style="--reveal-delay:120ms">
-    {intro.heading}
+    {t.intro.heading}
   </h2>
-  <p class="intro__body lede" data-reveal style="--reveal-delay:240ms">{intro.body}</p>
+  <p class="intro__body lede" data-reveal style="--reveal-delay:240ms">{t.intro.body}</p>
   <span class="rule" data-reveal style="--reveal-delay:360ms" aria-hidden="true"></span>
 </section>
 

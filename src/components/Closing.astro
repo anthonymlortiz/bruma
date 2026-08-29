@@ -1,14 +1,21 @@
 ---
 import { Picture } from 'astro:assets';
 import closingImage from '../assets/photography/closing-light.jpg';
-import { closing, site } from '../content/site';
+import { copy, site, type Lang } from '../content/site';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = copy[lang];
 ---
 
 <section class="closing" id="closing" aria-labelledby="closing-heading">
   <div class="closing__media" data-parallax>
     <Picture
       src={closingImage}
-      alt="Warm late light moving across the mountains around Jarabacoa"
+      alt={t.closing.imageAlt}
       widths={[768, 1080, 1440, 1920]}
       sizes="100vw"
       formats={['avif', 'webp']}
@@ -21,9 +28,11 @@ import { closing, site } from '../content/site';
   <div class="closing__scrim" aria-hidden="true"></div>
 
   <div class="closing__content">
-    <h2 class="closing__heading display" id="closing-heading" data-reveal>{closing.heading}</h2>
+    <h2 class="closing__heading display" id="closing-heading" data-reveal>{t.closing.heading}</h2>
     <span class="closing__rule" data-reveal style="--reveal-delay:140ms" aria-hidden="true"></span>
-    <p class="closing__status eyebrow" data-reveal style="--reveal-delay:240ms">{closing.status}</p>
+    <p class="closing__status eyebrow" data-reveal style="--reveal-delay:240ms">
+      {t.closing.status}
+    </p>
 
     <a
       class="ig"
@@ -33,7 +42,7 @@ import { closing, site } from '../content/site';
       data-reveal
       style="--reveal-delay:360ms"
     >
-      <span class="ig__label eyebrow">Instagram</span>
+      <span class="ig__label eyebrow">{t.closing.instagram}</span>
       <span class="ig__handle display">{site.instagram.handle}</span>
     </a>
   </div>
