@@ -155,11 +155,22 @@ sips -s format jpeg -s formatOptions best pics/early_morning/IMG_7698.HEIC \
 ```
 
 Both phone frames are blue-hour shots and are far cooler and brighter than the
-drone stills, so each carries a `tone` override in the `PHOTOS` manifest that
-pulls it back toward the warm, dark grade. Judge a new frame against
-`hero-ridges.jpg`, which sets the palette: roughly `L 0.18`, and a blue bias
+drone stills, so `mist-river-dawn` carries a `tone` override in the `PHOTOS`
+manifest that pulls it back toward the warm, dark grade. `dew-web` is
+green-dominated and needs none.
+
+Judge a new frame against `hero-ridges.jpg`, which sets the palette. Measured on
+gamma-encoded sRGB, it sits at roughly `L 0.39` (mean of
+`0.2126R + 0.7152G + 0.0722B`, normalised) with a blue bias
 (mean `B − (R+G)/2`) around `−22`. Anything much brighter or bluer will glare
 against the near-black page.
+
+Also check **detail density** — graded file size in KB per megapixel. The hero
+is ~226. A plate far below that is mush and will look soft no matter how many
+pixels it has: the first `valley-range` crop measured 88 KB/MP because it was a
+tight crop of hazy distance, and widening it to include the near hillside and
+palm took it to 256 while also fixing its tone. Prefer a wider crop that keeps
+some foreground over a tight crop of a far subject.
 
 ## Fonts
 

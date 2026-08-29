@@ -19,16 +19,17 @@ No stock or third-party imagery is used anywhere on the site.
 | Asset | Source file | Notes |
 | --- | --- | --- |
 | `hero-ridges.jpg` | `pics/los lalos 4k.jpg` | Aerial, forested ridges |
-| `mountain-air.jpg` | `pics/dew-web.jpg` | Dew held on a spider's web at dawn, valley soft behind. Converted from `pics/intimate/IMG_7707.HEIC` with `sips`. Needs no `tone` override — it already grades close to the hero |
-| `valley-range.jpg` | `pics/mist-river-dawn.jpg` | A river of mist in the valley at dawn, layered ridges behind. Converted from `pics/early_morning/IMG_7698.HEIC` with `sips`; cropped to exclude a palm and a private house on the left of the original frame |
+| `mountain-air.jpg` | `pics/dew-web.jpg` | A dew-covered spider's web suspended over the valley at dawn. Converted from `pics/intimate/IMG_7707.HEIC` with `sips`. Needs no `tone` override — it already grades close to the hero |
+| `valley-range.jpg` | `pics/mist-river-dawn.jpg` | A river of mist through the valley at dawn, royal palm in the foreground, layered ridges behind. Converted from `pics/early_morning/IMG_7698.HEIC` with `sips` |
 | `rolling-hills.jpg` | `pics/los lalos4 4k.jpg` | Aerial, rolling hills |
-| `closing-light.jpg` | `pics/Todo los lalos.jpg` | Aerial, late light |
+| `closing-light.jpg` | `pics/los lalos1 4k.jpg` | The jagged ridge, mist along its flank, that the brand mark was drawn from |
 
 Each is cropped and colour-graded in `scripts/build-assets.mjs`; the originals in
 `pics/` are untouched.
 
-Raw HEIC originals live in `pics/newer_pics/` and `pics/early_morning/` and are
-excluded from version control for size. They are not required to build the site.
+Raw HEIC originals live in `pics/newer_pics/`, `pics/early_morning/` and
+`pics/intimate/` and are excluded from version control for size. They are not
+required to build the site.
 
 ## Typefaces
 

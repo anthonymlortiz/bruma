@@ -90,14 +90,15 @@ export const copy: Record<Lang, Copy> = {
       rooted: 'Con raíces en Jarabacoa',
       airAlt:
         'Gotas de rocío suspendidas en una telaraña al amanecer, con el verde del valle desenfocado detrás',
-      valleyAlt: 'Un río de niebla asentado en el valle al amanecer, entre cordilleras superpuestas',
+      valleyAlt:
+        'Un río de niebla al amanecer atravesando el valle de Jarabacoa, con una palma real en primer plano y cordilleras superpuestas detrás',
       hillsAlt: 'Lomas verdes que se pliegan unas sobre otras bajo nubes altas de la tarde',
     },
     closing: {
       heading: 'Algo está tomando forma en las montañas.',
       status: 'Muy pronto',
       instagram: 'Instagram',
-      imageAlt: 'Luz cálida del atardecer moviéndose sobre las montañas de Jarabacoa',
+      imageAlt: 'La cordillera de cumbre dentada, con niebla prendida en su ladera, que dio origen a la marca Bruma, sobre el valle de Jarabacoa',
     },
     footer: {
       country: 'República Dominicana',
@@ -121,28 +122,29 @@ export const copy: Record<Lang, Copy> = {
     hero: {
       statement: 'Born in the mountains.',
       tagline:
-        'Bruma is a vision for places to live, stay, and gather—designed in harmony with nature and the spirit of Jarabacoa.',
+        'Bruma is a vision for places to live, stay, and gather, designed in harmony with nature and the spirit of Jarabacoa.',
       cue: 'Discover',
       imageAlt: 'Late afternoon light across the layered green ridges of the Jarabacoa highlands',
     },
     intro: {
       eyebrow: 'Jarabacoa, Dominican Republic',
       heading: 'A quieter way of being.',
-      body: 'Bruma is an evolving collection of places inspired by the landscape and spirit of Jarabacoa — created for slower mornings, meaningful gatherings, and a deeper connection with nature.',
+      body: 'Bruma is an evolving collection of places inspired by the landscape and spirit of Jarabacoa, created for slower mornings, meaningful gatherings, and a deeper connection with nature.',
     },
     sequence: {
       air: 'Mountain air',
       unhurried: 'Unhurried living',
       rooted: 'Rooted in Jarabacoa',
       airAlt: 'Dew held on a spider’s web at dawn, the green of the valley soft behind it',
-      valleyAlt: 'A river of mist settled in the valley at dawn, between layered mountain ridges',
+      valleyAlt:
+        'A river of mist at dawn running through the Jarabacoa valley, a royal palm in the foreground and layered ridges beyond',
       hillsAlt: 'Rolling green hills folding into one another under high afternoon cloud',
     },
     closing: {
       heading: 'Something is taking shape in the mountains.',
       status: 'Coming soon',
       instagram: 'Instagram',
-      imageAlt: 'Warm late light moving across the mountains around Jarabacoa',
+      imageAlt: 'The jagged ridgeline that the Bruma mark was drawn from, mist caught along its flank, above the Jarabacoa valley',
     },
     footer: {
       country: 'Dominican Republic',

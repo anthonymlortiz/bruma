@@ -115,29 +115,42 @@ function grade(instance, tone = {}) {
  * phone frames, and letting the browser crop them leaves far too much bright
  * sky for a dark, misty palette. `crop` is applied before the grade.
  *
+ * Crops are chosen against measured targets, not by eye. Every plate is judged
+ * on mean relative luminance (the hero sits at ~0.39), blue bias (hero ~-22)
+ * and detail density in KB/megapixel (hero ~226); a plate far off those reads
+ * as a glare or a smudge against the near-black ground.
+ *
  * `mist-river-dawn.jpg` and `dew-web.jpg` are full-resolution JPEG exports of
  * IMG_7698.HEIC and IMG_7707.HEIC (sharp cannot decode those HEICs directly —
- * see CREDITS.md for each original's location). `mist-river-dawn` is a
- * blue-hour frame, so it carries a `tone` that pulls it back toward the warm,
- * dark grade of the drone stills, and its crop excludes a palm and a private
- * house on the left of the original. `dew-web` needs no override: it is
- * green-dominated and already grades close to the hero. Its crop is deliberate
- * too — shifting it right or pulling it wider brings a red-roofed private
- * house, more of the village, and the spider itself into frame.
+ * see CREDITS.md for each original's location).
+ *
+ * `mist-river-dawn` is a blue-hour frame and carries a `tone` that pulls it
+ * back toward the warm, dark grade of the drone stills. Its crop keeps the
+ * palm and the near hillside on the left: those hold nearly all of the frame's
+ * dark tone and fine detail, and cropping them away leaves only hazy distance
+ * (L 0.43, blue +16, 98 KB/MP) where keeping them gives L 0.32, blue +1 and
+ * 257 KB/MP.
+ *
+ * `dew-web` needs no tone override — it is green-dominated and already grades
+ * close to the hero.
+ *
+ * `los lalos1 4k` is the ridge the brand mark was drawn from: the jagged range
+ * with mist caught along its flank. It backs the closing section, so it also
+ * replaces a 1920x1080 source that could not fill a full-bleed retina frame.
  */
 const PHOTOS = [
   { src: 'los lalos 4k.jpg', out: 'hero-ridges', width: 3200 },
   {
     src: 'dew-web.jpg',
     out: 'mountain-air',
-    crop: { left: 700, top: 786, width: 1790, height: 2238 },
-    width: 1600,
+    crop: { left: 400, top: 600, width: 3600, height: 2400 },
+    width: 2000,
   },
   {
     src: 'mist-river-dawn.jpg',
     out: 'valley-range',
-    crop: { left: 1750, top: 1150, width: 2280, height: 950 },
-    width: 2280,
+    crop: { left: 0, top: 900, width: 4032, height: 2016 },
+    width: 2600,
     tone: { saturation: 0.7, brightness: 0.86, blue: 0.8, contrast: 1.08, lift: -20, gamma: 1.04 },
   },
   {
@@ -146,7 +159,13 @@ const PHOTOS = [
     crop: { left: 0, top: 690, width: 3840, height: 1470 },
     width: 2800,
   },
-  { src: 'Todo los lalos.jpg', out: 'closing-light', width: 1920 },
+  {
+    src: 'los lalos1 4k.jpg',
+    out: 'closing-light',
+    crop: { left: 0, top: 560, width: 3840, height: 1600 },
+    width: 3200,
+    tone: { saturation: 0.8, brightness: 1.0, blue: 0.88, contrast: 1.04, lift: -6, gamma: 1.0 },
+  },
 ];
 
 async function main() {
