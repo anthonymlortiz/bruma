@@ -17,3 +17,8 @@ pics/early_morning/
 # Raw camera originals from the intimate/detail shoot (~30 MB of HEIC). The
 # pipeline sources the converted JPEG in pics/ instead. See CREDITS.md.
 pics/intimate/
+
+# Rejected barrancoli candidates. One is a Macaulay Library / eBird file and is
+# copyrighted, so it must not be committed to a public repo. The image actually
+# used is the CC0 pics/barrancoli-pinar.jpg. See CREDITS.md.
+pics/barrancoli/

@@ -154,10 +154,13 @@ const PHOTOS = [
     tone: { saturation: 0.7, brightness: 0.86, blue: 0.8, contrast: 1.08, lift: -20, gamma: 1.04 },
   },
   {
-    src: 'los lalos4 4k.jpg',
-    out: 'rolling-hills',
-    crop: { left: 0, top: 690, width: 3840, height: 1470 },
-    width: 2800,
+    src: 'barrancoli-pinar.jpg',
+    out: 'barrancoli-pinar',
+    // A letterbox band keeps the pine forest and drops the busy foreground at
+    // the top and bottom. Output matches the crop width exactly: the source is
+    // 2048px, and upscaling an already-soft frame only invents detail.
+    crop: { left: 0, top: 287, width: 2048, height: 785 },
+    width: 2048,
   },
   {
     src: 'los lalos1 4k.jpg',

@@ -51,7 +51,7 @@ interface Copy {
     rooted: string;
     airAlt: string;
     valleyAlt: string;
-    hillsAlt: string;
+    todyAlt: string;
   };
   closing: { heading: string; status: string; instagram: string; imageAlt: string };
   footer: { country: string };
@@ -92,7 +92,8 @@ export const copy: Record<Lang, Copy> = {
         'Gotas de rocío suspendidas en una telaraña al amanecer, con el verde del valle desenfocado detrás',
       valleyAlt:
         'Un río de niebla al amanecer atravesando el valle de Jarabacoa, con una palma real en primer plano y cordilleras superpuestas detrás',
-      hillsAlt: 'Lomas verdes que se pliegan unas sobre otras bajo nubes altas de la tarde',
+      todyAlt:
+        'Un barrancolí, ave endémica de La Española, posado en la rama de un pinar de Jarabacoa',
     },
     closing: {
       heading: 'Algo está tomando forma en las montañas.',
@@ -138,7 +139,8 @@ export const copy: Record<Lang, Copy> = {
       airAlt: 'Dew held on a spider’s web at dawn, the green of the valley soft behind it',
       valleyAlt:
         'A river of mist at dawn running through the Jarabacoa valley, a royal palm in the foreground and layered ridges beyond',
-      hillsAlt: 'Rolling green hills folding into one another under high afternoon cloud',
+      todyAlt:
+        'A broad-billed tody, endemic to Hispaniola, perched on a branch in a Jarabacoa pine forest',
     },
     closing: {
       heading: 'Something is taking shape in the mountains.',
