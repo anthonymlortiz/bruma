@@ -13,3 +13,7 @@ pics/newer_pics/
 # Raw camera originals from the early-morning shoot (~12 MB of HEIC). The
 # pipeline sources the converted JPEG in pics/ instead. See CREDITS.md.
 pics/early_morning/
+
+# Raw camera originals from the intimate/detail shoot (~30 MB of HEIC). The
+# pipeline sources the converted JPEG in pics/ instead. See CREDITS.md.
+pics/intimate/

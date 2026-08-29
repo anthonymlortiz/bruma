@@ -19,7 +19,7 @@ No stock or third-party imagery is used anywhere on the site.
 | Asset | Source file | Notes |
 | --- | --- | --- |
 | `hero-ridges.jpg` | `pics/los lalos 4k.jpg` | Aerial, forested ridges |
-| `mountain-air.jpg` | `pics/mist-through-the-hills.jpg` | Morning mist in the valleys, framed by tree canopy. Converted from `pics/newer_pics/IMG_7702.HEIC` with `sips` |
+| `mountain-air.jpg` | `pics/dew-web.jpg` | Dew held on a spider's web at dawn, valley soft behind. Converted from `pics/intimate/IMG_7707.HEIC` with `sips`. Needs no `tone` override — it already grades close to the hero |
 | `valley-range.jpg` | `pics/mist-river-dawn.jpg` | A river of mist in the valley at dawn, layered ridges behind. Converted from `pics/early_morning/IMG_7698.HEIC` with `sips`; cropped to exclude a palm and a private house on the left of the original frame |
 | `rolling-hills.jpg` | `pics/los lalos4 4k.jpg` | Aerial, rolling hills |
 | `closing-light.jpg` | `pics/Todo los lalos.jpg` | Aerial, late light |

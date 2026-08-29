@@ -115,21 +115,23 @@ function grade(instance, tone = {}) {
  * phone frames, and letting the browser crop them leaves far too much bright
  * sky for a dark, misty palette. `crop` is applied before the grade.
  *
- * `mist-through-the-hills.jpg` and `mist-river-dawn.jpg` are full-resolution
- * JPEG exports of IMG_7702.HEIC and IMG_7698.HEIC (sharp cannot decode those
- * HEICs directly — see CREDITS.md for each original's location). Both are
- * blue-hour phone frames, so each carries a `tone` that pulls it back toward
- * the warm, dark grade of the drone stills — the crop on `mist-river-dawn`
- * also excludes a palm and a private house on the left of the original frame.
+ * `mist-river-dawn.jpg` and `dew-web.jpg` are full-resolution JPEG exports of
+ * IMG_7698.HEIC and IMG_7707.HEIC (sharp cannot decode those HEICs directly —
+ * see CREDITS.md for each original's location). `mist-river-dawn` is a
+ * blue-hour frame, so it carries a `tone` that pulls it back toward the warm,
+ * dark grade of the drone stills, and its crop excludes a palm and a private
+ * house on the left of the original. `dew-web` needs no override: it is
+ * green-dominated and already grades close to the hero. Its crop is deliberate
+ * too — shifting it right or pulling it wider brings a red-roofed private
+ * house, more of the village, and the spider itself into frame.
  */
 const PHOTOS = [
   { src: 'los lalos 4k.jpg', out: 'hero-ridges', width: 3200 },
   {
-    src: 'mist-through-the-hills.jpg',
+    src: 'dew-web.jpg',
     out: 'mountain-air',
-    crop: { left: 900, top: 0, width: 1790, height: 2238 },
+    crop: { left: 700, top: 786, width: 1790, height: 2238 },
     width: 1600,
-    tone: { saturation: 0.62, brightness: 0.82, blue: 0.8, contrast: 1.1, lift: -26, gamma: 1.06 },
   },
   {
     src: 'mist-river-dawn.jpg',
