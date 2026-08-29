@@ -159,13 +159,15 @@ const PHOTOS = [
     tone: { saturation: 0.7, brightness: 0.86, blue: 0.8, contrast: 1.08, lift: -20, gamma: 1.04 },
   },
   {
-    src: 'barrancoli-pinar.jpg',
-    out: 'barrancoli-pinar',
-    // A letterbox band keeps the pine forest and drops the busy foreground at
-    // the top and bottom. Output matches the crop width exactly: the source is
-    // 2048px, and upscaling an already-soft frame only invents detail.
-    crop: { left: 0, top: 287, width: 2048, height: 785 },
-    width: 2048,
+    src: 'pinar-valley.jpg',
+    out: 'pinar-valley',
+    // Pines framing the valley. The source is an 18MP daylight frame with a
+    // large blue sky, and the sky is the whole problem: a band that keeps it
+    // grades to L 0.47 with a blue bias of -0.6, nothing like the rest of the
+    // site. Cutting the sky and holding the trunks lands at L 0.36 / -22 /
+    // 237 KB/MP against the hero's 0.39 / -22 / 226, so it needs no tone.
+    crop: { left: 0, top: 1100, width: 3600, height: 1379 },
+    width: 2800,
   },
   {
     src: 'los lalos1 4k.jpg',

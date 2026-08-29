@@ -19,6 +19,10 @@ pics/early_morning/
 pics/intimate/
 
 # Rejected barrancoli candidates. One is a Macaulay Library / eBird file and is
-# copyrighted, so it must not be committed to a public repo. The image actually
-# used is the CC0 pics/barrancoli-pinar.jpg. See CREDITS.md.
+# copyrighted, so it must not be committed to a public repo. Nothing here is
+# used by the site any more. See CREDITS.md.
 pics/barrancoli/
+
+# Raw originals from the pine shoot: an 18MP HEIC plus two 9:16 phone videos
+# (~16 MB). The pipeline sources the converted pics/pinar-valley.jpg instead.
+pics/pine/

@@ -2,7 +2,7 @@
 import Plate from './Plate.astro';
 import mountainAir from '../assets/photography/mountain-air.jpg';
 import valleyRange from '../assets/photography/valley-range.jpg';
-import barrancoli from '../assets/photography/barrancoli-pinar.jpg';
+import pinarValley from '../assets/photography/pinar-valley.jpg';
 import { copy, type Lang } from '../content/site';
 
 interface Props {
@@ -48,12 +48,12 @@ const t = copy[lang];
 
   <Plate
     class="seq-c"
-    src={barrancoli}
-    alt={t.sequence.todyAlt}
+    src={pinarValley}
+    alt={t.sequence.pinarAlt}
     ratio="var(--r)"
     position="50% 50%"
     sizes="100vw"
-    widths={[768, 1080, 1440, 1920, 2048]}
+    widths={[768, 1080, 1440, 1920, 2400, 2800]}
     parallax
   />
   <p class="note note--c" data-reveal>
