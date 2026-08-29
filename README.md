@@ -7,12 +7,13 @@ while its projects are being developed. No booking, no rates, no renderings.
 
 ## Stack
 
-[Astro 5](https://astro.build), static output, **zero client framework**. The
+[Astro 7](https://astro.build), static output, **zero client framework**. The
 only runtime JavaScript is ~40 lines of vanilla script for scroll reveals and
 parallax, and everything it does is optional — the page is complete and readable
 with JavaScript disabled.
 
-Build-time dependencies are deliberately minimal: `astro` and `sharp`.
+Runtime dependencies are deliberately minimal: `astro` and `sharp`.
+`@astrojs/check` and `typescript` are dev-only.
 
 ## Commands
 
