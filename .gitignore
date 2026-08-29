@@ -9,3 +9,7 @@ dist/
 # Raw camera originals (~64 MB of HEIC). Keep locally; the pipeline sources the
 # converted JPEGs in pics/ instead. See CREDITS.md.
 pics/newer_pics/
+
+# Raw camera originals from the early-morning shoot (~12 MB of HEIC). The
+# pipeline sources the converted JPEG in pics/ instead. See CREDITS.md.
+pics/early_morning/

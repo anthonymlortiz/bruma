@@ -115,8 +115,12 @@ function grade(instance, tone = {}) {
  * phone frames, and letting the browser crop them leaves far too much bright
  * sky for a dark, misty palette. `crop` is applied before the grade.
  *
- * `mist-through-the-hills.jpg` is a full-resolution JPEG export of
- * pics/newer_pics/IMG_7702.HEIC (sharp cannot decode that HEIC directly).
+ * `mist-through-the-hills.jpg` and `mist-river-dawn.jpg` are full-resolution
+ * JPEG exports of IMG_7702.HEIC and IMG_7698.HEIC (sharp cannot decode those
+ * HEICs directly — see CREDITS.md for each original's location). Both are
+ * blue-hour phone frames, so each carries a `tone` that pulls it back toward
+ * the warm, dark grade of the drone stills — the crop on `mist-river-dawn`
+ * also excludes a palm and a private house on the left of the original frame.
  */
 const PHOTOS = [
   { src: 'los lalos 4k.jpg', out: 'hero-ridges', width: 3200 },
@@ -128,10 +132,11 @@ const PHOTOS = [
     tone: { saturation: 0.62, brightness: 0.82, blue: 0.8, contrast: 1.1, lift: -26, gamma: 1.06 },
   },
   {
-    src: 'los lalos5 4k.jpg',
+    src: 'mist-river-dawn.jpg',
     out: 'valley-range',
-    crop: { left: 0, top: 560, width: 3840, height: 1600 },
-    width: 2600,
+    crop: { left: 1750, top: 1150, width: 2280, height: 950 },
+    width: 2280,
+    tone: { saturation: 0.7, brightness: 0.86, blue: 0.8, contrast: 1.08, lift: -20, gamma: 1.04 },
   },
   {
     src: 'los lalos4 4k.jpg',

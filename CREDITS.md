@@ -20,15 +20,15 @@ No stock or third-party imagery is used anywhere on the site.
 | --- | --- | --- |
 | `hero-ridges.jpg` | `pics/los lalos 4k.jpg` | Aerial, forested ridges |
 | `mountain-air.jpg` | `pics/mist-through-the-hills.jpg` | Morning mist in the valleys, framed by tree canopy. Converted from `pics/newer_pics/IMG_7702.HEIC` with `sips` |
-| `valley-range.jpg` | `pics/los lalos5 4k.jpg` | Aerial, valley toward the range |
+| `valley-range.jpg` | `pics/mist-river-dawn.jpg` | A river of mist in the valley at dawn, layered ridges behind. Converted from `pics/early_morning/IMG_7698.HEIC` with `sips`; cropped to exclude a palm and a private house on the left of the original frame |
 | `rolling-hills.jpg` | `pics/los lalos4 4k.jpg` | Aerial, rolling hills |
 | `closing-light.jpg` | `pics/Todo los lalos.jpg` | Aerial, late light |
 
 Each is cropped and colour-graded in `scripts/build-assets.mjs`; the originals in
 `pics/` are untouched.
 
-Raw HEIC originals live in `pics/newer_pics/` and are excluded from version
-control for size. They are not required to build the site.
+Raw HEIC originals live in `pics/newer_pics/` and `pics/early_morning/` and are
+excluded from version control for size. They are not required to build the site.
 
 ## Typefaces
 

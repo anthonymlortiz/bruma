@@ -90,7 +90,7 @@ export const copy: Record<Lang, Copy> = {
       rooted: 'Con raíces en Jarabacoa',
       airAlt:
         'Neblina de la mañana posada en los valles de Jarabacoa, vista entre las ramas de un árbol',
-      valleyAlt: 'El valle de Jarabacoa abriéndose hacia una cordillera difuminada',
+      valleyAlt: 'Un río de niebla asentado en el valle al amanecer, entre cordilleras superpuestas',
       hillsAlt: 'Lomas verdes que se pliegan unas sobre otras bajo nubes altas de la tarde',
     },
     closing: {
@@ -135,7 +135,7 @@ export const copy: Record<Lang, Copy> = {
       unhurried: 'Unhurried living',
       rooted: 'Rooted in Jarabacoa',
       airAlt: 'Morning mist lying in the valleys below Jarabacoa, seen through the canopy of a tree',
-      valleyAlt: 'The Jarabacoa valley opening toward a hazy line of mountains',
+      valleyAlt: 'A river of mist settled in the valley at dawn, between layered mountain ridges',
       hillsAlt: 'Rolling green hills folding into one another under high afternoon cloud',
     },
     closing: {

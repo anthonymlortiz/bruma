@@ -150,9 +150,16 @@ responsive AVIF/WebP/JPEG variants at build time.
 with macOS `sips` and commit the JPEG, keeping the build portable:
 
 ```sh
-sips -s format jpeg -s formatOptions best pics/newer_pics/IMG_7702.HEIC \
-  --out pics/mist-through-the-hills.jpg
+sips -s format jpeg -s formatOptions best pics/early_morning/IMG_7698.HEIC \
+  --out pics/mist-river-dawn.jpg
 ```
+
+Both phone frames are blue-hour shots and are far cooler and brighter than the
+drone stills, so each carries a `tone` override in the `PHOTOS` manifest that
+pulls it back toward the warm, dark grade. Judge a new frame against
+`hero-ridges.jpg`, which sets the palette: roughly `L 0.18`, and a blue bias
+(mean `B − (R+G)/2`) around `−22`. Anything much brighter or bluer will glare
+against the near-black page.
 
 ## Fonts
 
