@@ -74,7 +74,8 @@ export const copy: Record<Lang, Copy> = {
     },
     hero: {
       statement: 'Nacida en las montañas.',
-      tagline: 'Lugares concebidos desde la naturaleza, la calma y el espíritu de Jarabacoa.',
+      tagline:
+        'Bruma es una visión de lugares para vivir, quedarse y compartir, concebidos en armonía con la naturaleza y el espíritu de Jarabacoa.',
       cue: 'Descubrir',
       imageAlt: 'Luz de media tarde sobre las lomas verdes y escalonadas de Jarabacoa',
     },
@@ -119,7 +120,8 @@ export const copy: Record<Lang, Copy> = {
     },
     hero: {
       statement: 'Born in the mountains.',
-      tagline: 'Thoughtful places shaped by nature, calm, and the spirit of Jarabacoa.',
+      tagline:
+        'Bruma is a vision for places to live, stay, and gather—designed in harmony with nature and the spirit of Jarabacoa.',
       cue: 'Discover',
       imageAlt: 'Late afternoon light across the layered green ridges of the Jarabacoa highlands',
     },
