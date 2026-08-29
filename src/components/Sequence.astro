@@ -80,11 +80,32 @@ const t = copy[lang];
     gap: clamp(0.9rem, 2vh, 1.4rem);
   }
 
+  /* Same hairline family as the vertical rules: the tick draws itself in as
+     the caption settles, so the sequence keeps the motif alive between the
+     intro and closing rules. */
   .note__tick {
     display: block;
     width: clamp(2rem, 5vw, 3.75rem);
     height: 1px;
     background: rgba(243, 237, 225, 0.28);
+    transform-origin: left center;
+  }
+
+  :global(.js) .note__tick {
+    transform: scaleX(0);
+  }
+
+  :global(.js) .note.is-revealed .note__tick {
+    transform: none;
+    transition: transform 1100ms var(--ease) 460ms;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :global(.js) .note__tick,
+    :global(.js) .note.is-revealed .note__tick {
+      transform: none;
+      transition: none;
+    }
   }
 
   .note__text {
@@ -118,6 +139,7 @@ const t = copy[lang];
 
   .note--c .note__tick {
     width: clamp(2.5rem, 6vw, 4.5rem);
+    transform-origin: center;
   }
 
   /* Editorial zig-zag once there is room for it. */

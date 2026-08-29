@@ -184,18 +184,18 @@ const t = copy[lang];
     position: relative;
     display: block;
     width: 1px;
-    height: clamp(2.5rem, 6vh, 3.5rem);
-    background: rgba(243, 237, 225, 0.2);
+    height: clamp(3.5rem, 8.5vh, 5rem);
+    background: rgba(243, 237, 225, 0.26);
     overflow: hidden;
   }
 
   .hero__cue-pulse {
     position: absolute;
     inset-inline: 0;
-    top: -60%;
-    height: 60%;
+    top: -55%;
+    height: 55%;
     background: linear-gradient(180deg, transparent, var(--ivory));
-    animation: cue-fall 2600ms cubic-bezier(0.65, 0, 0.35, 1) infinite;
+    animation: cue-fall 2900ms cubic-bezier(0.65, 0, 0.35, 1) infinite;
   }
 
   @keyframes hero-settle {
@@ -233,8 +233,9 @@ const t = copy[lang];
 
   @keyframes cue-fall {
     0% {
-      top: -60%;
+      top: -55%;
     }
+
     75%,
     100% {
       top: 100%;

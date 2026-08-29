@@ -41,7 +41,7 @@ const clickLang = async (code) => {
 // 1. A first-time visitor gets Spanish at the root.
 let s = await go('/');
 check('root defaults to Spanish', s.lang, 'es');
-check('root shows Spanish hero', s.statement, 'Nacida en las montañas.');
+check('root shows Spanish hero', s.statement, 'Desde las montañas.');
 check('nothing stored before a choice', s.stored, null);
 
 // 2. /en/ serves English.
@@ -68,7 +68,7 @@ check('ES click lands on /', new URL(page.url()).pathname, '/');
 check('ES click is remembered', await page.evaluate(() => localStorage.getItem('bruma:lang')), 'es');
 s = await go('/');
 check('root stays Spanish once chosen', s.path, '/');
-check('root renders Spanish', s.statement, 'Nacida en las montañas.');
+check('root renders Spanish', s.statement, 'Desde las montañas.');
 
 // 6. A shared /en/ link still works for someone who prefers Spanish.
 s = await go('/en/');
@@ -77,7 +77,7 @@ check('shared /en/ link renders English', s.lang, 'en');
 check('shared /en/ link keeps the ES preference', s.stored, 'es');
 
 // 7. Only one language is ever present in the document.
-const spanishInEn = await page.evaluate(() => document.body.innerText.includes('Nacida en las montañas'));
+const spanishInEn = await page.evaluate(() => document.body.innerText.includes('Desde las montañas'));
 check('EN page contains no Spanish copy', spanishInEn, false);
 await go('/');
 const englishInEs = await page.evaluate(() => document.body.innerText.includes('Born in the mountains'));

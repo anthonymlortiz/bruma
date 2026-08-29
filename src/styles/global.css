@@ -146,10 +146,49 @@ a {
 }
 
 .rule {
+  position: relative;
   width: 1px;
   height: clamp(3rem, 8vh, 5.5rem);
   margin-inline: auto;
+  overflow: hidden;
   background: linear-gradient(180deg, transparent, var(--hairline) 22%, var(--hairline) 78%, transparent);
+}
+
+/* The descending hairline is a motif, not just a scroll hint: a single pulse
+   falls down each rule as it settles into view, echoing the hero cue and
+   carrying the eye to the next section. It runs once, then rests. */
+.rule::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  top: -55%;
+  height: 55%;
+  opacity: 0;
+  background: linear-gradient(180deg, transparent, var(--ivory));
+}
+
+.js .rule.is-revealed::after {
+  animation: rule-fall 2000ms cubic-bezier(0.65, 0, 0.35, 1) calc(var(--reveal-delay, 0ms) + 560ms) both;
+}
+
+@keyframes rule-fall {
+  0% {
+    top: -55%;
+    opacity: 0;
+  }
+
+  16% {
+    opacity: 1;
+  }
+
+  72% {
+    opacity: 1;
+  }
+
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
 }
 
 /* --------------------------------------------------------------- motion */

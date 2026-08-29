@@ -29,7 +29,7 @@ const t = copy[lang];
 
   <div class="closing__content">
     <h2 class="closing__heading display" id="closing-heading" data-reveal>{t.closing.heading}</h2>
-    <span class="closing__rule" data-reveal style="--reveal-delay:140ms" aria-hidden="true"></span>
+    <span class="rule closing__rule" data-reveal style="--reveal-delay:140ms" aria-hidden="true"></span>
     <p class="closing__status eyebrow" data-reveal style="--reveal-delay:240ms">
       {t.closing.status}
     </p>
@@ -112,7 +112,7 @@ const t = copy[lang];
   .closing__rule {
     display: block;
     width: 1px;
-    height: clamp(2.5rem, 6vh, 4rem);
+    height: clamp(3rem, 7vh, 4.5rem);
     margin-block: clamp(1.75rem, 4.5vh, 2.75rem);
     background: linear-gradient(180deg, transparent, rgba(243, 237, 225, 0.32), transparent);
   }

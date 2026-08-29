@@ -63,7 +63,7 @@ export const copy: Record<Lang, Copy> = {
     ogLocale: 'es_DO',
     endonym: 'Español',
     meta: {
-      title: 'BRUMA JARABACOA — Nacida en las montañas',
+      title: 'BRUMA JARABACOA — Desde las montañas',
       description:
         'Una colección en evolución de espacios inspirados en el paisaje y el espíritu de Jarabacoa, República Dominicana.',
       ogImageAlt: 'El emblema de BRUMA JARABACOA sobre las montañas de Jarabacoa',
@@ -73,7 +73,7 @@ export const copy: Record<Lang, Copy> = {
       langLabel: 'Idioma',
     },
     hero: {
-      statement: 'Nacida en las montañas.',
+      statement: 'Desde las montañas.',
       tagline:
         'Bruma es una visión de lugares para vivir, quedarse y compartir, concebidos en armonía con la naturaleza y el espíritu de Jarabacoa.',
       cue: 'Descubrir',
