@@ -131,8 +131,12 @@ function grade(instance, tone = {}) {
  * (L 0.43, blue +16, 98 KB/MP) where keeping them gives L 0.32, blue +1 and
  * 257 KB/MP.
  *
- * `dew-web` needs no tone override — it is green-dominated and already grades
- * close to the hero.
+ * `dew-web` is cropped to the top-left of the frame so the band of bruma lying
+ * over the valley reads behind the web, and so the right side, which holds a
+ * private red-roofed house, falls outside it. 2900px is the widest crop that
+ * still excludes that house, which fixes the height at 1933 for a 3:2 slot.
+ * Opening up the mist lifts the frame to L 0.48, far brighter than any other
+ * plate, so it carries a tone that brings it back to the hero's L 0.39.
  *
  * `los lalos1 4k` is the ridge the brand mark was drawn from: the jagged range
  * with mist caught along its flank. It backs the closing section, so it also
@@ -143,8 +147,9 @@ const PHOTOS = [
   {
     src: 'dew-web.jpg',
     out: 'mountain-air',
-    crop: { left: 400, top: 600, width: 3600, height: 2400 },
+    crop: { left: 0, top: 0, width: 2900, height: 1933 },
     width: 2000,
+    tone: { saturation: 0.84, brightness: 0.86, blue: 0.9, contrast: 1.1, lift: -22, gamma: 1.04 },
   },
   {
     src: 'mist-river-dawn.jpg',

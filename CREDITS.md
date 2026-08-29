@@ -19,7 +19,7 @@ with one exception, noted below, which is public domain.
 | Asset | Source file | Notes |
 | --- | --- | --- |
 | `hero-ridges.jpg` | `pics/los lalos 4k.jpg` | Aerial, forested ridges |
-| `mountain-air.jpg` | `pics/dew-web.jpg` | A dew-covered spider's web suspended over the valley at dawn. Converted from `pics/intimate/IMG_7707.HEIC` with `sips`. Needs no `tone` override — it already grades close to the hero |
+| `mountain-air.jpg` | `pics/dew-web.jpg` | A dew-covered spider's web with the bruma lying over the valley behind it at dawn. Converted from `pics/intimate/IMG_7707.HEIC` with `sips`. Cropped to the top-left of the frame to keep the mist and to leave a private red-roofed house outside the right edge; carries a `tone` override to bring the bright mist back to the hero's `L 0.39` |
 | `valley-range.jpg` | `pics/mist-river-dawn.jpg` | A river of mist through the valley at dawn, royal palm in the foreground, layered ridges behind. Converted from `pics/early_morning/IMG_7698.HEIC` with `sips` |
 | `barrancoli-pinar.jpg` | `pics/barrancoli-pinar.jpg` | **Not client-owned.** A broad-billed tody (*Todus subulatus*), endemic to Hispaniola, in a pine forest. See the licence note below |
 | `closing-light.jpg` | `pics/los lalos1 4k.jpg` | The jagged ridge, mist along its flank, that the brand mark was drawn from |

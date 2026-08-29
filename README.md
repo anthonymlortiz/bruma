@@ -159,9 +159,11 @@ sips -s format jpeg -s formatOptions best pics/early_morning/IMG_7698.HEIC \
 ```
 
 Both phone frames are blue-hour shots and are far cooler and brighter than the
-drone stills, so `mist-river-dawn` carries a `tone` override in the `PHOTOS`
-manifest that pulls it back toward the warm, dark grade. `dew-web` is
-green-dominated and needs none.
+drone stills, so both carry a `tone` override in the `PHOTOS` manifest that
+pulls them back toward the warm, dark grade. `dew-web` needs one because its
+crop opens onto the mist band over the valley, which is bright and low-contrast:
+under the default grade the frame lands at `L 0.48`, far above every other
+plate.
 
 Judge a new frame against `hero-ridges.jpg`, which sets the palette. Measured on
 gamma-encoded sRGB, it sits at roughly `L 0.39` (mean of

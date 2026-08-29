@@ -89,7 +89,7 @@ export const copy: Record<Lang, Copy> = {
       unhurried: 'Vivir sin prisa',
       rooted: 'Desde Jarabacoa',
       airAlt:
-        'Gotas de rocío suspendidas en una telaraña al amanecer, con el verde del valle desenfocado detrás',
+        'Gotas de rocío suspendidas en una telaraña al amanecer, con la bruma tendida sobre el valle y las cordilleras de Jarabacoa detrás',
       valleyAlt:
         'Un río de niebla al amanecer atravesando el valle de Jarabacoa, con una palma real en primer plano y cordilleras superpuestas detrás',
       todyAlt:
@@ -136,7 +136,8 @@ export const copy: Record<Lang, Copy> = {
       air: 'Mountain air',
       unhurried: 'Unhurried living',
       rooted: 'Rooted in Jarabacoa',
-      airAlt: 'Dew held on a spider’s web at dawn, the green of the valley soft behind it',
+      airAlt:
+        'Dew held on a spider’s web at dawn, with mist lying over the valley and the ridges of Jarabacoa behind it',
       valleyAlt:
         'A river of mist at dawn running through the Jarabacoa valley, a royal palm in the foreground and layered ridges beyond',
       todyAlt:
