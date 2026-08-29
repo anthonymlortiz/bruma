@@ -1,0 +1,14 @@
+{
+  "name": "BRUMA JARABACOA",
+  "short_name": "BRUMA",
+  "description": "An evolving collection of thoughtful places inspired by the landscape and spirit of Jarabacoa, Dominican Republic.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#070c09",
+  "theme_color": "#070c09",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

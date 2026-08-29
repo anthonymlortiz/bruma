@@ -1,0 +1,184 @@
+---
+import { Picture } from 'astro:assets';
+import closingImage from '../assets/photography/closing-light.jpg';
+import { closing, site } from '../content/site';
+---
+
+<section class="closing" id="closing" aria-labelledby="closing-heading">
+  <div class="closing__media" data-parallax>
+    <Picture
+      src={closingImage}
+      alt="Warm late light moving across the mountains around Jarabacoa"
+      widths={[768, 1080, 1440, 1920]}
+      sizes="100vw"
+      formats={['avif', 'webp']}
+      fallbackFormat="jpg"
+      quality={70}
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
+  <div class="closing__scrim" aria-hidden="true"></div>
+
+  <div class="closing__content">
+    <h2 class="closing__heading display" id="closing-heading" data-reveal>{closing.heading}</h2>
+    <span class="closing__rule" data-reveal style="--reveal-delay:140ms" aria-hidden="true"></span>
+    <p class="closing__status eyebrow" data-reveal style="--reveal-delay:240ms">{closing.status}</p>
+
+    <a
+      class="ig"
+      href={site.instagram.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      data-reveal
+      style="--reveal-delay:360ms"
+    >
+      <span class="ig__label eyebrow">Instagram</span>
+      <span class="ig__handle display">{site.instagram.handle}</span>
+    </a>
+  </div>
+</section>
+
+<style>
+  .closing {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: min(88svh, 46rem);
+    padding: clamp(6rem, 16vh, 10rem) var(--gutter);
+    overflow: clip;
+    isolation: isolate;
+    text-align: center;
+  }
+
+  .closing__media {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
+
+  .closing__media :global(picture) {
+    display: contents;
+  }
+
+  .closing__media :global(img) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 118%;
+    top: -9%;
+    object-fit: cover;
+    object-position: 50% 56%;
+    transform: translate3d(0, calc(var(--py, 0) * 1%), 0);
+  }
+
+  .closing__scrim {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      linear-gradient(
+        180deg,
+        var(--night) 0%,
+        rgba(7, 12, 9, 0.82) 16%,
+        rgba(7, 12, 9, 0.7) 50%,
+        rgba(7, 12, 9, 0.88) 84%,
+        var(--night) 100%
+      ),
+      linear-gradient(0deg, rgba(18, 32, 25, 0.4), rgba(18, 32, 25, 0.4));
+  }
+
+  .closing__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 44rem;
+  }
+
+  .closing__heading {
+    font-size: clamp(1.95rem, 1.1rem + 3.7vw, 3.5rem);
+    max-width: 17ch;
+  }
+
+  .closing__rule {
+    display: block;
+    width: 1px;
+    height: clamp(2.5rem, 6vh, 4rem);
+    margin-block: clamp(1.75rem, 4.5vh, 2.75rem);
+    background: linear-gradient(180deg, transparent, rgba(243, 237, 225, 0.32), transparent);
+  }
+
+  .closing__status {
+    color: var(--stone);
+    font-size: clamp(0.7rem, 0.64rem + 0.24vw, 0.82rem);
+    letter-spacing: 0.42em;
+    text-indent: 0.42em;
+  }
+
+  .ig {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7rem;
+    margin-top: clamp(2.5rem, 7vh, 4rem);
+    text-decoration: none;
+    color: var(--ink-muted);
+    transition: color 500ms var(--ease);
+  }
+
+  .ig__label {
+    color: var(--sage);
+    transition: color 500ms var(--ease);
+  }
+
+  .ig__handle {
+    position: relative;
+    font-size: clamp(1.35rem, 0.95rem + 1.6vw, 2rem);
+    line-height: 1.3;
+    padding-bottom: 0.35rem;
+  }
+
+  .ig__handle::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.35;
+    transform: scaleX(0.42);
+    transform-origin: center;
+    transition:
+      transform 700ms var(--ease),
+      opacity 700ms var(--ease);
+  }
+
+  .ig:hover,
+  .ig:focus-visible {
+    color: var(--ivory);
+  }
+
+  .ig:hover .ig__label,
+  .ig:focus-visible .ig__label {
+    color: var(--stone);
+  }
+
+  .ig:hover .ig__handle::after,
+  .ig:focus-visible .ig__handle::after {
+    transform: scaleX(1);
+    opacity: 0.7;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .closing__media :global(img) {
+      height: 100%;
+      top: 0;
+      transform: none;
+    }
+
+    .ig__handle::after {
+      transform: none;
+    }
+  }
+</style>

@@ -1,0 +1,84 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Intro from '../components/Intro.astro';
+import Sequence from '../components/Sequence.astro';
+import Closing from '../components/Closing.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+---
+
+<Base>
+  <main id="main">
+    <Hero />
+    <Intro />
+    <Sequence />
+    <Closing />
+  </main>
+  <SiteFooter />
+</Base>
+
+<script>
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  /* Gentle reveal as each element settles into view. */
+  const revealables = document.querySelectorAll<HTMLElement>('[data-reveal]');
+
+  if (reduceMotion.matches || !('IntersectionObserver' in window)) {
+    revealables.forEach((el) => el.classList.add('is-revealed'));
+  } else {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          entry.target.classList.add('is-revealed');
+          observer.unobserve(entry.target);
+        }
+      },
+      { rootMargin: '0px 0px -10% 0px', threshold: 0.15 },
+    );
+    revealables.forEach((el) => observer.observe(el));
+  }
+
+  /* Very slight parallax — a few percent — only while a layer is on screen. */
+  const AMPLITUDE = 6;
+  const layers = Array.from(document.querySelectorAll<HTMLElement>('[data-parallax]'));
+
+  if (layers.length && !reduceMotion.matches && 'IntersectionObserver' in window) {
+    const onscreen = new Set<HTMLElement>();
+    let queued = false;
+
+    const paint = () => {
+      queued = false;
+      const viewport = window.innerHeight;
+      for (const layer of onscreen) {
+        const { top, height } = layer.getBoundingClientRect();
+        const progress = (viewport - top) / (viewport + height);
+        const clamped = Math.min(1, Math.max(0, progress));
+        layer.style.setProperty('--py', ((clamped - 0.5) * -AMPLITUDE).toFixed(3));
+      }
+    };
+
+    const schedule = () => {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(paint);
+    };
+
+    const visibility = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          const target = entry.target as HTMLElement;
+          if (entry.isIntersecting) onscreen.add(target);
+          else onscreen.delete(target);
+        }
+        schedule();
+      },
+      { rootMargin: '15% 0px' },
+    );
+
+    layers.forEach((layer) => visibility.observe(layer));
+    addEventListener('scroll', schedule, { passive: true });
+    addEventListener('resize', schedule, { passive: true });
+    schedule();
+  }
+</script>

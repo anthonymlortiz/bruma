@@ -1,0 +1,36 @@
+---
+import { intro } from '../content/site';
+---
+
+<section class="intro" id="intro" aria-labelledby="intro-heading">
+  <p class="eyebrow" data-reveal>{intro.eyebrow}</p>
+  <h2 class="intro__heading display" id="intro-heading" data-reveal style="--reveal-delay:120ms">
+    {intro.heading}
+  </h2>
+  <p class="intro__body lede" data-reveal style="--reveal-delay:240ms">{intro.body}</p>
+  <span class="rule" data-reveal style="--reveal-delay:360ms" aria-hidden="true"></span>
+</section>
+
+<style>
+  .intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--section-y) var(--gutter) 0;
+  }
+
+  .intro__heading {
+    margin-top: clamp(1.5rem, 3.4vh, 2.25rem);
+    font-size: clamp(2rem, 1.2rem + 3.6vw, 3.6rem);
+    max-width: 18ch;
+  }
+
+  .intro__body {
+    margin-top: clamp(1.5rem, 3.4vh, 2.25rem);
+  }
+
+  .rule {
+    margin-top: var(--section-y);
+  }
+</style>

@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.astro/
+.DS_Store
+*.log
+.env
+.env.*
+
+# Raw camera originals (~64 MB of HEIC). Keep locally; the pipeline sources the
+# converted JPEGs in pics/ instead. See CREDITS.md.
+pics/newer_pics/

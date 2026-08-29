@@ -1,0 +1,196 @@
+@import './fonts.css';
+
+/* ---------------------------------------------------------------- tokens */
+
+:root {
+  /* Dark-mode brand palette: deep forest ground, warm ivory ink. */
+  --night: #070c09;
+  --forest: #0b1410;
+  --pine: #122019;
+  --moss: #24402f;
+  --sage: #7e9184;
+  --stone: #a79e90;
+  --ivory: #f3ede1;
+
+  --ink: var(--ivory);
+  --ink-muted: rgba(243, 237, 225, 0.74);
+  --ink-quiet: rgba(243, 237, 225, 0.58);
+  --hairline: rgba(243, 237, 225, 0.16);
+
+  --font-display: 'Cormorant Garamond', 'Iowan Old Style', 'Times New Roman', serif;
+  --font-sans: 'Jost', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+
+  --gutter: clamp(1.5rem, 6vw, 6.5rem);
+  --measure: 33rem;
+  --section-y: clamp(6rem, 16vh, 11.5rem);
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  color-scheme: dark;
+}
+
+/* ------------------------------------------------------------- baseline */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--night);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  line-height: 1.75;
+  letter-spacing: 0.005em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+p,
+figure,
+blockquote {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 1px solid var(--ivory);
+  outline-offset: 0.4rem;
+  border-radius: 1px;
+}
+
+::selection {
+  background: var(--moss);
+  color: var(--ivory);
+}
+
+/* --------------------------------------------------------------- type */
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 300;
+  line-height: 1.08;
+  letter-spacing: 0.004em;
+  text-wrap: balance;
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: clamp(0.64rem, 0.6rem + 0.16vw, 0.72rem);
+  line-height: 1.4;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+
+.lede {
+  color: var(--ink-muted);
+  max-width: var(--measure);
+  text-wrap: pretty;
+}
+
+/* ------------------------------------------------------------ utilities */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 20;
+  transform: translateY(-200%);
+  padding: 0.7rem 1.2rem;
+  background: var(--pine);
+  color: var(--ivory);
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.rule {
+  width: 1px;
+  height: clamp(3rem, 8vh, 5.5rem);
+  margin-inline: auto;
+  background: linear-gradient(180deg, transparent, var(--hairline) 22%, var(--hairline) 78%, transparent);
+}
+
+/* --------------------------------------------------------------- motion */
+
+/* Hidden only once JS is confirmed, so the page is never blank without it. */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 1.4rem, 0);
+}
+
+.js [data-reveal] {
+  transition:
+    opacity 1.15s var(--ease),
+    transform 1.15s var(--ease);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.js [data-reveal].is-revealed {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .js [data-reveal],
+  .js [data-reveal].is-revealed {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

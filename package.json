@@ -1,0 +1,26 @@
+{
+  "name": "bruma-jarabacoa",
+  "version": "1.0.0",
+  "description": "BRUMA JARABACOA — brand site",
+  "main": "index.js",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "assets": "node scripts/build-assets.mjs",
+    "fonts": "node scripts/fetch-fonts.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "private": "true",
+  "dependencies": {
+    "astro": "^5.18.2",
+    "sharp": "^0.35.3"
+  },
+  "overrides": {
+    "sharp": "^0.35.3"
+  }
+}
