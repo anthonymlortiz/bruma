@@ -13,8 +13,11 @@
   --ivory: #f3ede1;
 
   --ink: var(--ivory);
-  --ink-muted: rgba(243, 237, 225, 0.74);
-  --ink-quiet: rgba(243, 237, 225, 0.58);
+  /* Body copy sits well clear of AAA at these alphas; the lift is perceptual,
+     since light sans text on a near-black field reads fainter than its
+     contrast ratio suggests. Kept short of full ivory so headings still lead. */
+  --ink-muted: rgba(243, 237, 225, 0.82);
+  --ink-quiet: rgba(243, 237, 225, 0.68);
   --hairline: rgba(243, 237, 225, 0.16);
 
   --font-display: 'Cormorant Garamond', 'Iowan Old Style', 'Times New Roman', serif;
