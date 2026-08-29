@@ -65,7 +65,7 @@ export const copy: Record<Lang, Copy> = {
     meta: {
       title: 'BRUMA JARABACOA — Desde las montañas',
       description:
-        'Una colección en evolución de espacios inspirados en el paisaje y el espíritu de Jarabacoa, República Dominicana.',
+        'Una visión de lugares para vivir, descansar y compartir, inspirados en la naturaleza y el espíritu de Jarabacoa.',
       ogImageAlt: 'El emblema de BRUMA JARABACOA sobre las montañas de Jarabacoa',
     },
     ui: {
@@ -75,19 +75,19 @@ export const copy: Record<Lang, Copy> = {
     hero: {
       statement: 'Desde las montañas.',
       tagline:
-        'Bruma es una visión de lugares para vivir, quedarse y compartir, concebidos en armonía con la naturaleza y el espíritu de Jarabacoa.',
+        'Bruma es una visión de lugares para vivir, descansar y compartir, concebidos en armonía con la naturaleza y el espíritu de Jarabacoa.',
       cue: 'Descubrir',
       imageAlt: 'Luz de media tarde sobre las lomas verdes y escalonadas de Jarabacoa',
     },
     intro: {
       eyebrow: 'Jarabacoa, República Dominicana',
       heading: 'Una forma más serena de vivir.',
-      body: 'Bruma es una colección en evolución de espacios inspirados en el paisaje y el espíritu de Jarabacoa, creados para mañanas sin prisa, encuentros memorables y una conexión más profunda con la naturaleza.',
+      body: 'En Bruma, la arquitectura acompaña el paisaje y la vida sigue el ritmo de la montaña: mañanas sin prisa, encuentros memorables y una conexión más profunda con la naturaleza.',
     },
     sequence: {
       air: 'Aire de montaña',
       unhurried: 'Vivir sin prisa',
-      rooted: 'Con raíces en Jarabacoa',
+      rooted: 'Desde Jarabacoa',
       airAlt:
         'Gotas de rocío suspendidas en una telaraña al amanecer, con el verde del valle desenfocado detrás',
       valleyAlt:
@@ -112,7 +112,7 @@ export const copy: Record<Lang, Copy> = {
     meta: {
       title: 'BRUMA JARABACOA — Born in the Mountains',
       description:
-        'An evolving collection of thoughtful places inspired by the landscape and spirit of Jarabacoa, Dominican Republic.',
+        'A vision for places to live, stay, and gather, inspired by nature and the spirit of Jarabacoa.',
       ogImageAlt: 'The BRUMA JARABACOA mark over the mountains of Jarabacoa',
     },
     ui: {
@@ -129,7 +129,7 @@ export const copy: Record<Lang, Copy> = {
     intro: {
       eyebrow: 'Jarabacoa, Dominican Republic',
       heading: 'A quieter way of being.',
-      body: 'Bruma is an evolving collection of places inspired by the landscape and spirit of Jarabacoa, created for slower mornings, meaningful gatherings, and a deeper connection with nature.',
+      body: 'At Bruma, architecture follows the landscape and life moves at the rhythm of the mountains—slower mornings, meaningful gatherings, and a deeper connection with nature.',
     },
     sequence: {
       air: 'Mountain air',
