@@ -129,7 +129,7 @@ export const copy: Record<Lang, Copy> = {
     intro: {
       eyebrow: 'Jarabacoa, Dominican Republic',
       heading: 'A quieter way of being.',
-      body: 'At Bruma, architecture follows the landscape and life moves at the rhythm of the mountains—slower mornings, meaningful gatherings, and a deeper connection with nature.',
+      body: 'At Bruma, architecture follows the landscape and life moves at the rhythm of the mountains: slower mornings, meaningful gatherings, and a deeper connection with nature.',
     },
     sequence: {
       air: 'Mountain air',
